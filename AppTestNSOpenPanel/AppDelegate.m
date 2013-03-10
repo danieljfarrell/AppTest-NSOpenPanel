@@ -15,4 +15,29 @@
     // Insert code here to initialize your application
 }
 
+-(void) importUsingNSOpenPanel:(id)sender {
+    
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    
+    // Configure your panel the way you want it
+    [panel setCanChooseFiles:YES];
+    [panel setCanChooseDirectories:YES];
+    [panel setAllowsMultipleSelection:NO];
+    //[panel setAllowedFileTypes:[NSArray arrayWithObject:@"txt"]];
+    
+    //__unsafe_unretained MenuBarController *weakSelf = self;
+    [panel beginWithCompletionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton) {
+            
+            //            for (NSURL *fileURL in [panel URLs]) {
+            //                weakSelf.importFileURL = fileURL;
+            //                break;
+            //            }
+        }
+        
+    }];
+    
+    
+}
 @end
+
